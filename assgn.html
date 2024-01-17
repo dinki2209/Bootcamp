@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country, State, City Dropdown</title>
+    <style>
+        select {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="country">Country:</label>
+    <select id="country" onchange="updateStates()">
+        <option value="">Select Country</option>
+        <option value="india">India</option>
+        <!-- Add more countries as needed -->
+    </select>
+
+    <label for="state">State:</label>
+    <select id="state" onchange="updateCities()">
+        <option value="">Select State</option>
+        <!-- States associated with India -->
+        <option value="delhi" data-country="india">Delhi</option>
+        <option value="mumbai" data-country="india">Mumbai</option>
+        <!-- Add more states as needed -->
+    </select>
+
+    <label for="city">City:</label>
+    <select id="city">
+        <option value="">Select City</option>
+        <!-- Cities associated with Delhi -->
+        <option value="new-delhi" data-state="delhi">New Delhi</option>
+        <option value="noida" data-state="delhi">Noida</option>
+        <!-- Cities associated with Mumbai -->
+        <option value="south-mumbai" data-state="mumbai">South Mumbai</option>
+        <option value="north-mumbai" data-state="mumbai">North Mumbai</option>
+        <!-- Add more cities as needed -->
+    </select>
+
+    <script>
+        function updateStates() {
+            var countrySelect = document.getElementById('country');
+            var stateSelect = document.getElementById('state');
+            var citySelect = document.getElementById('city');
+
+            // Clear existing options
+            stateSelect.innerHTML = '<option value="">Select State</option>';
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            // Get selected country
+            var selectedCountry = countrySelect.
